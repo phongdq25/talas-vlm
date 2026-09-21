@@ -5,7 +5,7 @@ uv sync
 ```
 
 ## Download dataset
-1. Download the eval image file zip from huggingface (`optional`) 
+
 ```bash
 source .venv/bin/activate
 bash download.sh
