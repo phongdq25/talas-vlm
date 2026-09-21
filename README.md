@@ -16,7 +16,7 @@ bash prepare.sh
 ```bash
 CUDA_VISIBLE_DEVICES=0 bash project_commands_0.sh
 ```
-or
+And
 ```
 CUDA_VISIBLE_DEVICES=1 bash project_commands_1.sh
 ```
