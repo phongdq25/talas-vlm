@@ -47,7 +47,6 @@ torchrun --standalone \
     --lr_scheduler_type "cosine" \
     --warmup_ratio 0.03 \
     --kd_weight 0.3 \
-    --kd_weight 2.5 \
     --w_cross_modal_loss 2.5 \
     --kd_loss_type "span_attn_sigreg_kd" \
     --image_resolution "low" \

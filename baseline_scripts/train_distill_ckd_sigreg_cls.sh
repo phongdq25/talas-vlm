@@ -44,7 +44,7 @@ torchrun --standalone \
     --teacher_normalize True \
     --lr_scheduler_type "cosine" \
     --warmup_ratio 0.03 \
-    --kd_weight 0.3 \
+    --kd_weight 0.2 \
     --kd_loss_type "ckd_sigreg_kd" \
     --image_resolution "low" \
     --projector_config_path "./config/projector_config_emo.json" \
