@@ -383,7 +383,7 @@ class TalasJepa(nn.Module):
         return loss_sigreg.mean()
 
     def _compute_modality_distill(self, student_hidden_states, image_features, 
-                                  text_token_counts, attention_mask, concept_queries):
+                                  text_token_counts, attention_mask):
         """
         Hàm này chỉ còn nhiệm vụ trích xuất text và vision representations 
         của student, cùng với việc tính toán SIGReg loss.
@@ -457,8 +457,7 @@ class TalasJepa(nn.Module):
     def forward(self, model_wrapper, input_data):
         student_model = model_wrapper.model
         student_processor = model_wrapper.get_processor()
-        student_tokenizer = student_processor.tokenizer
-        concept_queries = model_wrapper.concept_queries      
+        student_tokenizer = student_processor.tokenizer 
 
         student_qry_input = input_data['qry']
         student_pos_input = input_data['pos']
@@ -536,7 +535,6 @@ class TalasJepa(nn.Module):
             image_features=student_qry_image_features,
             text_token_counts=num_student_text_qry_tokens, 
             attention_mask=student_qry_input['attention_mask'], 
-            concept_queries=concept_queries
         )
 
         # Trích xuất Representations từ POS
@@ -545,7 +543,6 @@ class TalasJepa(nn.Module):
             image_features=student_pos_image_features,
             text_token_counts=num_student_text_pos_tokens, 
             attention_mask=student_pos_input['attention_mask'], 
-            concept_queries=concept_queries
         )
 
         stu_modality_features = []

@@ -26,9 +26,14 @@ unzip ./datasets/InfographicsVQA.zip -d ./vlm2vec_train/MMEB-train/images/
 unzip ./datasets/ChartQA.zip -d ./vlm2vec_train/MMEB-train/images/
 unzip ./datasets/Visual7W.zip -d ./vlm2vec_train/MMEB-train/images/
 unzip ./datasets/MSCOCO.zip -d ./vlm2vec_train/MMEB-train/images/
+unzip ./datasets/RefCOCO.zip -d ./vlm2vec_train/MMEB-train/images/
+unzip ./datasets/RefCOCO-Matching.zip -d ./vlm2vec_train/MMEB-train/images/
+unzip ./datasets/Visual7W-Pointing.zip -d ./vlm2vec_train/MMEB-train/images/
 
 #
 # 4. Unzip the cache
 #
 tar -xzf ./datasets/B3_Qwen2_2B_cls.tar.gz -C .
 tar -xzf ./datasets/B3_Qwen2_2B_vqa.tar.gz -C .
+tar -xzf ./datasets/B3_Qwen2_2B_grounding.tar.gz -C .
+tar -xzf ./datasets/B3_Qwen2_7B_cls.tar.gz -C .
