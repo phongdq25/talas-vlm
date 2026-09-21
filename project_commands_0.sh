@@ -4,7 +4,7 @@ set -e
 
 source .venv/bin/activate
 
-bash prepare.sh
+# bash prepare.sh
 
 
 
