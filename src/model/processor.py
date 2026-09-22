@@ -86,6 +86,8 @@ VLM_IMAGE_TOKENS = {
     INTERNVIDEO2: "",
     COLPALI: "",
     LLAVA_QWEN2: "<image>",
+    LLAVA_QWEN2_OLD: "<image>",
+    LLAVA_ONEVISION_OLD: "<image>",
 }
 
 VLM_VIDEO_TOKENS = {
@@ -99,7 +101,7 @@ VLM_VIDEO_TOKENS = {
     GME: "<|video_pad|>",
     LamRA: "<|video_pad|>",
     INTERNVIDEO2: "",
-    LLAVA_QWEN2: ""
+    LLAVA_QWEN2: "",
 
 }
 
@@ -114,6 +116,8 @@ backbone2model = {
     QWEN2_5_VL_TOKENSELECTION: Qwen2_5_VL_TokenSelectionForConditionalGeneration,
     INTERNVIDEO2: InternVideo2_Stage2,
     LLAVA_QWEN2: LlavaQwen2ForCausalLM,
+    LLAVA_QWEN2_OLD: LlavaQwen2ForCausalLM,
+    LLAVA_ONEVISION_OLD: LlavaOnevisionForConditionalGeneration
 }
 
 def expand2square(pil_img, background_color):
@@ -837,7 +841,6 @@ def Intern_VL3_process_fn(model_inputs: dict, processor, max_length=None, IMG_ST
     # import ipdb; ipdb.set_trace()
     return model_inputs
 
-
 def FastVLM_old_process_fn(model_inputs: dict, processor: FastVLMProcessor | FastVLMProcessor2 , max_length=None, square_padding=False):
     texts, visual_inputs = model_inputs['text'], model_inputs['images']
     # print(f'This process_fn is for FastVLM_old, which is deprecated. Please use FastVLM_process_fn instead.')
@@ -910,6 +913,8 @@ def Llava_ONEVISION_old_process_fn(model_inputs: dict, processor, max_length=Non
     }
     # print("Last 10 input_ids:", batch_encoding["input_ids"][:, -10:])
     return batch_encoding
+
+
 
 process_vlm_inputs_fns = {
     PHI3V: Phi3V_process_fn,
